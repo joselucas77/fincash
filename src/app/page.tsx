@@ -189,7 +189,7 @@ export default function FinanceApp() {
                     setIsEditingSalary(true)
                     setTempSalary(salary.toString())
                   }}
-                  variant="outline"
+                  variant="default"
                   size="sm"
                 >
                   <Edit className="h-4 w-4" />
@@ -227,7 +227,7 @@ export default function FinanceApp() {
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5" />
-                Dívidas & Metas
+                Resumo
               </CardTitle>
               <div className="flex items-center gap-2">
                 <div className="flex rounded-lg border p-1 bg-muted/50">
@@ -267,7 +267,7 @@ export default function FinanceApp() {
                       <DialogTitle>Adicionar Item</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4">
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="title">Título</Label>
                         <Input
                           id="title"
@@ -276,7 +276,7 @@ export default function FinanceApp() {
                           placeholder="Nome do item"
                         />
                       </div>
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="amount">Valor</Label>
                         <Input
                           id="amount"
@@ -286,13 +286,13 @@ export default function FinanceApp() {
                           placeholder="0,00"
                         />
                       </div>
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="category">Categoria</Label>
                         <Select
                           value={newItem.category}
                           onValueChange={(value: "divida" | "meta") => setNewItem({ ...newItem, category: value })}
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="w-full">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -301,7 +301,7 @@ export default function FinanceApp() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <div>
+                      <div className="space-y-2">
                         <Label htmlFor="description">Descrição (opcional)</Label>
                         <Input
                           id="description"
@@ -391,7 +391,7 @@ export default function FinanceApp() {
                                       <DialogTitle>Editar Item</DialogTitle>
                                     </DialogHeader>
                                     <div className="space-y-4">
-                                      <div>
+                                      <div className="space-y-2">
                                         <Label htmlFor="edit-title">Título</Label>
                                         <Input
                                           id="edit-title"
@@ -400,7 +400,7 @@ export default function FinanceApp() {
                                           placeholder="Nome do item"
                                         />
                                       </div>
-                                      <div>
+                                      <div className="space-y-2">
                                         <Label htmlFor="edit-amount">Valor</Label>
                                         <Input
                                           id="edit-amount"
@@ -410,7 +410,7 @@ export default function FinanceApp() {
                                           placeholder="0,00"
                                         />
                                       </div>
-                                      <div>
+                                      <div className="space-y-2">
                                         <Label htmlFor="edit-category">Categoria</Label>
                                         <Select
                                           value={newItem.category}
@@ -418,7 +418,7 @@ export default function FinanceApp() {
                                             setNewItem({ ...newItem, category: value })
                                           }
                                         >
-                                          <SelectTrigger>
+                                          <SelectTrigger className="w-full">
                                             <SelectValue />
                                           </SelectTrigger>
                                           <SelectContent>
@@ -427,7 +427,7 @@ export default function FinanceApp() {
                                           </SelectContent>
                                         </Select>
                                       </div>
-                                      <div>
+                                      <div className="space-y-2">
                                         <Label htmlFor="edit-description">Descrição (opcional)</Label>
                                         <Input
                                           id="edit-description"
