@@ -215,7 +215,7 @@ export default function FinanceApp() {
       <div className="space-y-6">
         {/* Salary Card */}
         <Card className="border-primary/20">
-          <CardHeader className="pb-1">
+          <CardHeader>
             <CardTitle className="flex items-center gap-2 text-primary">
               <DollarSign className="h-5 w-5" />
               Salário do Mês
@@ -267,7 +267,7 @@ export default function FinanceApp() {
 
         {/* Summary Card */}
         <Card>
-          <CardContent className="pt-4">
+          <CardContent>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <p className="text-sm text-muted-foreground">Dívidas</p>
@@ -301,7 +301,7 @@ export default function FinanceApp() {
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5" />
-                Resumo
+                Financeiro
               </CardTitle>
               <div className="flex items-center gap-2">
                 <div className="flex rounded-lg border p-1 bg-muted/50">

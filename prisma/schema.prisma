@@ -12,4 +12,44 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id              String         @id @default(cuid())
+  name            String
+  email           String         @unique
+  password        String
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  // relações
+  entries         Entry[]
+  salaries        MonthlySalary[]
+}
+
+model MonthlySalary {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Decimal   @db.Decimal(12,2)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+//
+// Modelo unificado para a listagem “Dívidas & Metas”
+//
+model Entry {
+  id          String           @id @default(cuid())
+  userId      String
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  category    String
+  description String?
+  amount      Decimal          @db.Decimal(12,2)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([userId, category, createdAt])
 }
